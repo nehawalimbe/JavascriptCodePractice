@@ -1,0 +1,268 @@
+Array methods :-
+.push() takes one or more parameters and "pushes" them onto the end of the array.
+.unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+.pop() is used to pop a value off of the end of an array. We can store this popped off value by assigning it to a variable. In other words, .pop() removes the last element from an array and returns that element.
+That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+Equality Operator :-
+3 == '3' returns true because JavaScript performs type conversion from string to number. 3 === '3' returns false because the types are different and type conversion is not performed.
+
+JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and 1 (exclusive). Thus Math.random() can return a 0 but never return a 1.
+
+Generate whole Number between 0 to 19 using Math.random():-
+Math.floor(Math.random() * 20);
+
+Generate Random Whole Numbers within a Range :-
+Math.floor(Math.random() * (max - min + 1)) + min;
+======================================
+let max = 90
+let min = 85;
+console.log("Getting a random number between two values =",Math.random() * (max - min) + min);
+
+console.log("Getting a random integer between two values =", Math.floor(Math.random() * (max - min) + min));
+// The maximum is exclusive and the minimum is inclusive
+
+
+console.log("Getting a random integer between two values, inclusive =", Math.floor(Math.random() * (max - min + 1) + min));
+// The maximum is inclusive and the minimum is inclusive
+ 
+
+====================================
+Logical OR operator :-
+let logicalOr = false || 89;
+ans => 89
+
+If the LHS is null, undefined, false then RHS is used
+------------------------
+nullish coalescing (??) operator
+let nullishCoalescing = false ?? 56;
+
+ans => false
+If the LHS is null, undefined then RHS is used
+
+===================================
+Spread operator -> 
+
+...arr returns an unpacked array. In other words, it spreads the array. However, the spread operator only works in-place, like in an argument to a function or in an array literal. The 
+following code will not work:
+
+=====================================
+OOP
+
+// Explicit constructor
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+  takeOff() {
+    console.log("To " + this.targetPlanet + "!");
+  }
+}
+
+// Implicit constructor 
+class Rocket {
+  launch() {
+    console.log("To the moon!");
+  }
+}
+
+const zeus = new SpaceShuttle('Jupiter');
+// prints To Jupiter! in console
+zeus.takeOff();
+
+const atlas = new Rocket();
+// prints To the moon! in console
+atlas.launch();
+It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
+
+========================================
+Celsius  -> Fahrenheit and Fahrenheit -> Celsius formulas
+Remember that C = 5/9 * (F - 32) and F = C * 9.0 / 5 + 32, where F is the value of temperature in Fahrenheit, and C is the value of the same temperature in Celsius.
+====================================
+Most of the JavaScript you've learned up to this point was in ES5 (ECMAScript 5), which was finalized in 2009. While you can still write programs in ES5, JavaScript is constantly evolving, and new features are released every year.
+
+ES6, released in 2015, added many powerful new features to the language. In this course, you'll learn these new features, including arrow functions, destructuring, classes, promises, and modules.
+
+Promise
+-------------------------------------------------------------
+A promise in JavaScript is exactly what it sounds like - you use it to make a promise to do something, usually asynchronously. When the task completes, you either fulfill your promise or fail to do so.
+
+A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. 
+
+Arrays
+-------------------------------------------------------------
+arrays are mutable
+push() method adds elements to the end of an array, and unshift() adds elements to the beginning.
+
+splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array.
+
+Object Oriented Javascript
+-------------------------------------------------------------
+Constructors are functions that create new objects.
+
+Constructors are defined with a capitalized name to distinguish them from other functions that are not constructors.
+Constructors use the keyword this to set properties of the object they will create. Inside the constructor, this refers to the new object it will create.
+Constructors define properties and behaviors instead of returning a value as other functions might.
+
+Properties in the prototype are shared among ALL instances of Bird Object.Here's how to add numLegs to the Bird prototype:
+
+Bird.prototype.numLegs = 2;
+Now all instances of Bird have the numLegs property.
+
+Just like people inherit genes from their parents, an object inherits its prototype directly from the constructor function that created it.
+
+Prototype 
+-------------------------------------------------------------
+function Bird(name) {
+  this.name = name;
+}
+
+let duck = new Bird("Donald");
+duck inherits its prototype from the Bird constructor function. You can show this relationship with the isPrototypeOf method:
+
+Bird.prototype.isPrototypeOf(duck);
+
+All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
+
+let duck = new Bird("Donald");
+duck.hasOwnProperty("name");
+The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain. In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck. Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.
+
+Inhetitance
+-------------------------------------------------------------
+Bird.prototype = Object.create(Animal.prototype);
+
+When an object inherits its prototype from another object, it also inherits the supertype's constructor property.
+
+
+Example of Inheritance :-
+
+function Animal() { }
+Animal.prototype.eat = function() {
+  console.log("nom nom nom");
+};
+function Bird() { }
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+
+-------------------------------------------------------------
+Override menthods
+Override Inherited Methods
+In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
+
+ChildObject.prototype = Object.create(ParentObject.prototype);
+Then the ChildObject received its own methods by chaining them onto its prototype:
+
+ChildObject.prototype.methodName = function() {...};
+It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
+
+function Animal() { }
+Animal.prototype.eat = function() {
+  return "nom nom nom";
+};
+function Bird() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+
+Bird.prototype.eat = function() {
+  return "peck peck peck";
+};
+If you have an instance let duck = new Bird(); and you call duck.eat(), this is how JavaScript looks for the method on the prototype chain of duck:
+
+duck => Is eat() defined here? No.
+Bird => Is eat() defined here? => Yes. Execute it and stop searching.
+Animal => eat() is also defined, but JavaScript stopped searching before reaching this level.
+Object => JavaScript stopped searching before reaching this level.
+-------------------------------------------------------------
+
+Mixins
+
+A mixin allows other objects to use a collection of functions.
+
+let flyMixin = function(obj) {
+  obj.fly = function() {
+    console.log("Flying, wooosh!");
+  }
+};
+
+-------------------------------------------------------------
+
+Example of closure :-
+
+function Bird() {
+  let hatchedEgg = 10;
+
+  this.getHatchedEggCount = function() { 
+    return hatchedEgg;
+  };
+}
+let ducky = new Bird();
+ducky.getHatchedEggCount();
+Here getHatchedEggCount is a privileged method, because it has access to the private variable hatchedEgg. This is possible because hatchedEgg is declared in the same context as getHatchedEggCount. In JavaScript, a function always has access to the context in which it was created. This is called closure.
+
+
+-------------------------------------------------------------
+Immediately Invoked Function Expression
+
+An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
+
+--------------------------------------------------------------
+TypeScript
+
+3. What is any type, and when to use it?
+There are times when you want to store a value in a variable but don’t know the type of that variable in advance. For example, the value is coming from an API call or the user input. The ‘any’ type allows you to assign a value of any type to the variable of type any.
+
+4. What is void, and when to use the void type?
+
+The void indicates the absence of type on a variable. It acts as the opposite type to any. It is especially useful in functions that don’t return a value.
+
+function notify(): void {
+  alert("The user has been notified.");
+}
+If a variable is of type void, you can only assign the null or undefined values to that variable. 
+
+
+5. What is an unknown type, and when to use it in TypeScript?
+
+The unknown type is the type-safe counterpart of any type. You can assign anything to the unknown, but the unknown isn’t assignable to anything but itself and any, without performing a type assertion of a control-flow-based narrowing. You cannot perform any operations on a variable of an unknown type without first asserting or narrowing it to a more specific type.
+
+Consider the following example. We create the foo variable of unknown type and assign a string value to it. If we try to assign that unknown variable to a string variable bar, the compiler gives an error.
+
+let foo: unknown = "Akshay";
+let bar: string = foo; // Type 'unknown' is not assignable to type 'string'.(2322)
+You can narrow down a variable of an unknown type to something specific by doing typeof checks or comparison checks or using type guards. For example, we can get rid of the above error by
+
+let foo: unknown = "Akshay";
+let bar: string = foo as string;
+
+--------------------------------------------------------------
+
+Functional Programming
+
+One of the core principles of functional programming is to not change things.
+
+Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect. A function, ideally, should be a pure function, meaning that it does not cause any side effects.
+
+Pure function do not cause any side effects
+
+--------------------------------------------------------------
+Javascript Sort Fucntion :-
+
+Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
+
+--------------------------------------------------------------
+Currying :- 
+
+The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+
+--------------------------------------------------------------
+Partial Applicatrion :-
+
+Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments. Here's an example:
+
+function impartial(x, y, z) {
+  return x + y + z;
+}
+
+const partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // 13

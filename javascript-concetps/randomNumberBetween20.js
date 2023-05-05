@@ -1,0 +1,1 @@
+console.log("Random Number = ", Math.floor(Math.random() * 20));
