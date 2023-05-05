@@ -1,0 +1,2 @@
+# JavascriptCodePractice
+Practice JavaScript Concepts
