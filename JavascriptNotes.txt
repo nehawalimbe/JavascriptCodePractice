@@ -266,3 +266,52 @@ function impartial(x, y, z) {
 
 const partialFn = impartial.bind(this, 1, 2);
 partialFn(10); // 13
+
+--------------------------------------------------------------
+Regular Expression :-
+
+Regular expressions are used in programming languages to match parts of strings.
+
+OR operator in regular expression :-
+You can also search for more than just two patterns. 
+You can do this by adding more patterns with more OR operators separating them, like /yes|no|maybe/.
+
+Ignore Case While Matching :-
+There are other flags but here you'll focus on the flag that ignores case - the i flag.
+You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. 
+This regex can match the strings ignorecase, igNoreCase, and IgnoreCase.
+
+Match method :-
+"Hello, World!".match(/Hello/);
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);
+Here the first match would return ["Hello"] and the second would return ["expressions"].
+
+Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+
+'string'.match(/regex/);
+/regex/.test('string');
+
+It resutns null if string is not having word matching to regular expresison
+
+Find More Than the First Match :-
+To search or extract a pattern more than once, you can use the global search flag: g.
+
+let repeatRegex = /Repeat/g;
+testStr.match(repeatRegex);
+And here match returns the value ["Repeat", "Repeat", "Repeat"]
+
+Dot/Period/Wildcard Character :-
+
+The wildcard character . will match any one character. The wildcard is also called dot and period. 
+You can use the wildcard character just like any other character in the regex. 
+For example, if you wanted to match hug, huh, hut, and hum, you can use the regex /hu./ to match all four words.
+
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr);
+huRegex.test(hugStr);
+Both of these test calls would return true.
+
