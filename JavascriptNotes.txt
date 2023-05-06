@@ -399,3 +399,12 @@ This object (arguments) is used to access the parameter passed to a function.
 It is only available within a function. We can’t access it outside the function.
 Arguments object allow you to access all of the arguments that are passed to a function. 
 We can access these arguments using indexes.
+
+Javascript Primitive Data Types :-
+JavaScript recognizes seven primitive (immutable) data types: Boolean, Null, Undefined, Number, String, Symbol (new with ES6), and BigInt (new with ES2020), 
+and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
+
+--------------------------------------------------------------
+Falsy Values :-
+Almost every value on its own in JavaScript evaluates to true, except what are known as the "falsy" values: 
+false, 0, "" (an empty string), NaN, undefined, and null.
