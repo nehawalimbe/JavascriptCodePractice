@@ -408,3 +408,13 @@ and one type for mutable items: Object. Note that in JavaScript, arrays are tech
 Falsy Values :-
 Almost every value on its own in JavaScript evaluates to true, except what are known as the "falsy" values: 
 false, 0, "" (an empty string), NaN, undefined, and null.
+
+--------------------------------------------------------------
+method to ftatten the arrayfunction getArrayElements(arr) {
+    return arr.reduce((resultArray, element) => {
+      return resultArray.concat(Array.isArray(element) ? getArrayElements(element) : element);
+    }, []);
+}
+
+input :- [1, [2, [5], [[6]]], [3, [[4]]]]
+output :-  [1, 2, 5, 6, 3, 4]
