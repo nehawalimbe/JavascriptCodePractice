@@ -418,3 +418,70 @@ method to ftatten the arrayfunction getArrayElements(arr) {
 
 input :- [1, [2, [5], [[6]]], [3, [[4]]]]
 output :-  [1, 2, 5, 6, 3, 4]
+
+--------------------------------------------------------------
+JavaScript -> Explain how 'this' keyword works in JavaScript
+
+If the new keyword is used when calling the function, this inside the function is a brand new object.
+If apply, call, or bind are used to call/create a function, this inside the function is the object that is passed in as the argument.
+If a function is called as a method, such as obj.method() — this is the object that the function is a property of.
+If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the global object. In a browser, it is the window object. If in strict mode ('use strict'), this will be undefined instead of the global object.
+If multiple of the above rules apply, the rule that is higher wins and will set the this value.
+If the function is an ES2015 arrow function, it ignores all the rules above and receives the this value of its surrounding scope at the time it is created.
+
+--------------------------------------------------------------
+JavaScript -> call, apply, bind
+
+call: binds the this value, invokes the function, and allows you to pass a list of arguments.
+
+function test(arg1, arg2){
+  console.log(this.num, arg1, arg2); // 100, 10, 20
+}
+
+test.call({num: 100}, 10, 20);
+
+---------------------------------
+apply: binds the this value, invokes the function, and allows you to pass arguments as an array.
+
+function test(...arguments){
+  console.log(this.num, arguments);//100, [1,2,3]
+}
+
+test.apply({num: 100}, [1,2,3]); 
+---------------------------------
+bind: binds the this value, returns a new function, and allows you to pass in a list of arguments.
+
+function test(arg){
+ console.log(this.number, arg);
+}
+
+let bindedFn = test.bind({number: 99}, "argument");
+
+bindedFn(); // 99, "argument"
+
+--------------------------------------------------------------
+'this' keyword inside arrow functions 
+
+"use strict";
+
+const obj = {
+  i: 10,
+  b: () => console.log(this.i, this),
+  c() {
+    console.log(this.i, this);
+  },
+};
+
+obj.b(); // logs undefined, Window { /* … */ } (or the global object)
+obj.c(); // logs 10, Object { /* … */ }
+
+--------------------------------------------------------------
+Event bubbling & capturing :-
+
+Event bubbling and capturing are two ways of event propagation in the HTML DOM API, 
+when an event occurs in an element inside another element, and both elements have registered a handle for that event. 
+The event propagation mode determines in which order the elements receive the event.
+
+With bubbling, the event is first captured and handled by the innermost element and then propagated to outer elements.
+
+With capturing, the event is first captured by the outermost element and propagated to the inner elements.
