@@ -28,7 +28,10 @@
 <!-- <script src="./hacker-rank/camelCase.js"></script> -->
 <!-- <script src="./javascript-concepts/linked-list/singlyLinkedList.js"></script> -->
 <!-- <script src="./javascript-concepts/output-coding-programs/stringPrototyprCapaitalize.js"></script> -->
-<script src="./javascript-concepts/output-coding-programs/flattenObject.js"></script>
+<!-- <script src="./javascript-concepts/output-coding-programs/flattenObject.js"></script> -->
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 <div>
     <ul>
         <li>
@@ -41,4 +44,26 @@
             It also has programs for practicing ES5, ES6 concepts
         </li>
     </ul>
+</div>
+
+<script src="./javascript-concepts/dom-manipulation/domEvents.js"></script>
+<div>    
+    <ul id="list">
+  
+    </ul>
+    <div id="buttonContainer">
+        <div>
+            div inside buttonContainer which will not receive click event
+        </div>    
+    </div>
+    <button onclick="addButton()"> Add button dynamically</button>
+</div>
+<div>
+    event bubbling
+    <div title="Outer Div" onclick="clickDiv(event)"> 
+        Outer div   
+        <div title="Inner Div" onclick="clickDiv(event)">
+            Inner div
+        </div>
+    </div>
 </div>
