@@ -469,6 +469,10 @@ var array = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
 
 Array.from(new Set(array)); // [1, 2, 3, 5, 9, 8]
 
+OR 
+// Use the spread syntax to transform a set into an Array.
+let uniqueArray = [...new Set(array)];
+
 // ES5 Implementation1
 
 
@@ -548,14 +552,6 @@ capitalize prototype : https://jsfiddle.net/9muvskzh/1/ OR https://jsfiddle.net/
 Object Parsing : https://jsfiddle.net/q3n7tdeg/ OR https://jsfiddle.net/nehawalimbe/6o5Lh1ns/4/
 
 --------------------------------------------------------
-
-For Refer a friend: Use the following details :
-Senior Applications Developer
-Reference: 146473  or  146470 or  146471
-Job Code/Level: 10730/IC3
-
--------------------------------------------------------
-
 TODO Neha 
 --------------------------------------------------------
 What is mean by Pollyfill ?
