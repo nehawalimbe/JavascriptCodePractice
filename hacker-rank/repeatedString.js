@@ -23,22 +23,24 @@ int: the frequency of a in the substring
 function repeatedString(s, n) {
     // Write your code here    
     let regEx1 = /a/g;
-    let str = Array(n).join(s);
+    let bigNum = BigInt(n);
+    let str = '';
+    // let str = Array(bigNum).join(s);
     // let loopCount = Math.round(n/s.length);
     // console.log('loop count ',loopCount);
     // for (let i = 0; i <=loopCount; i++) {
     //     str += s;
     // }
-    // do {
-    //     str += s;
-    // } while(str.length <=n);
-    console.log('string before slice => ',str);
-    str = str.slice(0,n);
-    console.log('string => ',str);
-    console.log('a count -> ',str.match(regEx1).length);
+    do {
+        str += s;
+    } while(str.length <=n);
+    console.log('string before slice => ', str);
+    str = str.slice(0, bigNum.toString());
+    console.log('string => ', str);
+    console.log('a count -> ', str.match(regEx1).length);
     return str.match(regEx1).length;
 }
 
-repeatedString('abcac', 10);
+// repeatedString('abcac', 10);
 // repeatedString('aba', 10);
 repeatedString('a', 1000000000000);
