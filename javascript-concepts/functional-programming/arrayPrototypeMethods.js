@@ -19,9 +19,9 @@ Array.prototype.myFilter = function (callback) {
 }
 
 Array.prototype.myReduce = function (callback, output) {
-    output = output || this[0]; // use first element if output is not initialized
+    output = output === null || output === undefined ? 0 : output; 
     this.forEach((item, index) => {
-        output = callback(item,index)
+        output = callback(output, item)
     }); 
     return output;
 }
