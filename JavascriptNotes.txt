@@ -549,3 +549,7 @@ console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of 
 var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
+
+--------------------------------------------------------------
+TODO Neha go through - how to create your own promise
+https://medium.com/nerd-for-tech/implement-your-own-promises-in-javascript-68ddaa6a5409
