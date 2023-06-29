@@ -563,3 +563,4 @@ Interview Notes :-
 Try to use table fro, Oracle JET
 sort the table data
 check questions for performance improvement
+Check about date formats
